@@ -1,134 +1,101 @@
 :root {
-  /* Define color variables for easy theme management */
-  --background-color: #121212; /* Soft black background */
-  --sidebar-color: rgb(27, 37, 63); /* Sidebar color */
-  --accent-color: #16213e; /* Accent color for the gradient */
-  --text-color: #ffffff; /* Text color */
-  --button-color: #0084ff; /* Button color */
-  --button-hover-color: #0056b3; /* Button hover color */
-  --form-background-color: #2d2d3a; /* Form background color */
+  --background-color: #18191b;
+  --sidebar-color: rgb(27, 37, 63);
+  --accent-color: #16213e;
+  --text-color: #ffffff;
+  --button-color: #0084ff;
+  --button-hover-color: #0056b3;
+  --form-background-color: #2d2d3a;
 }
 
 body, html {
-  /* Use the color variables */
   background: linear-gradient(135deg, var(--background-color), var(--accent-color));
   color: var(--text-color);
-  font-family: 'Montserrat', sans-serif; /* Apply Montserrat */
-  /* Rest of the styles... */
+  font-family: 'Montserrat', sans-serif;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .sidebar {
-  width: 35px; /* Narrow initial width */
+  width: 60px;
   height: 100vh;
   background-color: var(--sidebar-color);
   position: fixed;
   top: 0;
   left: 0;
-  transition: width 0.3s ease; /* Smooth transition for hover effect */
-  z-index: 1000; /* Ensure sidebar is above other content */
+  transition: width 0.3s ease;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px; /* Space for logo at the top */
+  padding-top: 20px;
 }
 
-/* Expand the sidebar only when it is hovered over */
 .sidebar:hover {
-  width: 80px; /* Wider on hover */
+  width: 80px;
 }
 
-/* No need for .App:hover .content anymore */
 .content {
-  margin-left: 80px; /* Adjusted to the expanded sidebar width */
+  margin-left: 80px;
   display: flex;
-  flex-direction: row; /* Align children in a row */
-  height: 100vh; /* Full height to fill the screen */
+  flex-direction: row;
+  height: 100vh;
 }
 
-/* Container for the left half */
 .left-container {
-  flex: 1; /* Take up half of the available space */
+  flex: 1;
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Center content horizontally */
-  justify-content: center; /* Center content vertically */
-  padding: 1rem; /* Add some padding */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .title {
-  align-self: flex-start; /* Align to the start of its container */
-  width: 100%; /* Ensure it takes full width of its container */
-  text-align: left; /* Align the text to the left */
-  margin-top: 30; /* Remove any margin at the top if necessary */
-  padding-top: 10px; /* Add padding at the top if needed */
-  padding-left: 10px; /* Add padding to align the title inside the left container */
+  align-self: flex-start;
+  width: 100%;
+  text-align: left;
+  margin-top: 30px;
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
-/* Ensure .scenario-form is centered within .left-container */
 .scenario-form {
-  margin-top: auto; /* Push it to the middle */
-  margin-bottom: auto; /* Center it vertically within the remaining space */
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-/* Container for the right half */
 .right-container {
-  flex: 1; /* Take up half of the available space */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content horizontally */
-  justify-content: flex-start; /* Align content to the top */
-  padding: 1rem; /* Add some padding */
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
 }
 
-/* Additional styling for logos and icons */
 .sidebar-logo,
 .sidebar-icon {
-  /* Icons and logo styling goes here */
-  cursor: pointer; /* Optional: changes cursor to a pointer to indicate it's clickable */
-  width: 100%; /* Ensures the icons use the full width of the sidebar */
-  text-align: center; /* Centers the icon text if not replaced by images */
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
 }
-
-/* Form styling */
-textarea {
-  background-color: var(--form-background-color);
-  /* Rest of the styles... */
-}
-
-/* Button styling */
-button {
-  background-color: var(--button-color);
-  /* Rest of the styles... */
-}
-
-button:hover {
-  background-color: var(--button-hover-color);
-  /* Rest of the styles... */
-}
-
-/* .scenario-form {
-  width: 100%; 
-  max-width: 500px; 
-  margin: 0 auto; 
-} */
 
 textarea, button {
-  width: 100%; /* Full width of their parent */
-  margin-top: 1rem; /* Margin at the top for spacing */
-  border-radius: 12px; /* Rounded corners */
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 12px;
 }
 
 button {
   padding: 10px 20px;
-  margin-top: 1rem; /* Margin at the top for spacing */
+  margin-top: 1rem;
 }
 
-
-/* Add responsive design adjustments if needed */
 @media (max-width: 768px) {
   .App {
-    padding-left: 80px; /* Equal to width of sidebar when hovered */
+    padding-left: 80px;
   }
-  
-  /* Rest of the media query styles... */
 }
