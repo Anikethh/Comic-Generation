@@ -27,11 +27,11 @@ panels = generate_panels(SCENARIO)
 
 # print(panels)
 
-with open('output/panels.json', 'w') as outfile:
-  json.dump(panels, outfile)
+# with open('output/panels.json', 'w') as outfile:
+#   json.dump(panels, outfile)
 
-# with open('output/panels.json') as json_file:
-#   panels = json.load(json_file)
+with open('output/panels.json') as json_file:
+  panels = json.load(json_file)
 
 def main(scenario):
     STYLE = "american comic, colored"

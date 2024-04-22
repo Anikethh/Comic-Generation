@@ -18,6 +18,22 @@ body, html {
   font-family: 'Montserrat', sans-serif;
 }
 
+.comic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 3 columns */
+  grid-template-rows: repeat(3, 1fr); /* 2 rows */
+  gap: 10px;
+  width: 100%;
+  padding: 20px;
+}
+
+.image-placeholder {
+  background-color: #333; /* Dark background for placeholders */
+  border: 2px solid #444; /* Slightly lighter border */
+  border-radius: 8px; /* Rounded corners */
+  height: 200px; /* Fixed height, adjust based on your design */
+}
+
 .sidebar {
   width: 60px;
   height: 100vh;
