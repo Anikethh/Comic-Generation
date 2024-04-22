@@ -1,0 +1,12 @@
+{
+  "name": "comics_generator",
+  "version": "1.0.0",
+  "description": "A comics generator",
+  "scripts": {
+    "start": "node --max-http-header-size=16384 index.js"
+  },
+  "author": "Aniketh",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": []
+}

@@ -1,4 +1,5 @@
 import json
+import sys
 
 from generate_panels import generate_panels
 from stability_ai import text_to_image
@@ -32,14 +33,21 @@ with open('output/panels.json', 'w') as outfile:
 # with open('output/panels.json') as json_file:
 #   panels = json.load(json_file)
 
-panel_images = []
+def main(scenario):
+    STYLE = "american comic, colored"
+    panels = generate_panels(scenario)
+    panel_images = []
+    
+    for panel in panels:
+        panel_prompt = panel["description"] + ", cartoon box, " + STYLE
+        print(f"Generate panel {panel['number']} with prompt: {panel_prompt}")
+        panel_image = text_to_image(panel_prompt)
+        panel_image_with_text = add_text_to_panel(panel["text"], panel_image)
+        panel_image_with_text.save(f"output/panel-{panel['number']}.png")
+        panel_images.append(panel_image_with_text)
 
-for panel in panels:
-  panel_prompt = panel["description"] + ", cartoon box, " + STYLE
-  print(f"Generate panel {panel['number']} with prompt: {panel_prompt}")
-  panel_image = text_to_image(panel_prompt)
-  panel_image_with_text = add_text_to_panel(panel["text"], panel_image)
-  panel_image_with_text.save(f"output/panel-{panel['number']}.png")
-  panel_images.append(panel_image_with_text)
+    create_strip(panel_images).save("output/strip.png")
 
-create_strip(panel_images).save("output/strip.png")
+if __name__ == "__main__":
+    scenario = sys.argv[1] if len(sys.argv) > 1 else SCENARIO
+    main(scenario)

@@ -1,0 +1,65 @@
+/* Reset some basic elements */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clean font */
+    background-color: #f4f4f4; /* Lighter background */
+    color: #333; /* Dark grey text for better readability */
+    text-align: center; /* Center text alignment */
+  }
+  
+  /* Universal box-sizing */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Styling for the whole app component */
+  .App {
+    padding: 20px;
+  }
+  
+  /* Headers might use a slightly darker color to stand out */
+  header {
+    margin-bottom: 20px;
+  }
+  
+  /* Styling specific to form elements */
+  input, textarea, button {
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc; /* subtle borders */
+    border-radius: 8px; /* rounded corners */
+    background: none;
+    color: inherit; /* Inherits from body */
+  }
+  
+  /* Enhance the button to look more modern */
+  button {
+    background-color: #0084ff; /* A cool blue */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  @media (max-width: 768px) {
+    .App {
+      padding: 10px;
+    }
+  
+    input, textarea, button {
+      width: 90%; /* Make form elements take full width on smaller screens */
+      margin: 10px auto; /* Centering */
+    }
+  
+    /* Adjust grid for smaller screens */
+    .ComicGrid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+  }
+    
