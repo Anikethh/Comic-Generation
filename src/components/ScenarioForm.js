@@ -1,22 +1,26 @@
 import React from 'react';
 
 function ScenarioForm({ onGenerate }) {
-    return (
-        <form onSubmit={(e) => {
-            e.preventDefault();
-            onGenerate();
-        }}>
-            <textarea
-                placeholder="Enter your scenario..."
-                rows="4"
-                cols="50"
-            />
-            <button type="submit">Generate Comic</button>
-        </form>
-    );
+  return (
+    <div className="scenario-form">
+      <form onSubmit={(e) => {
+          e.preventDefault();
+          onGenerate();
+      }}>
+          <textarea
+              placeholder="Enter your scenario..."
+              rows="3"
+              cols="50"
+          />
+          <button type="submit">Generate Comic</button>
+      </form>
+    </div>
+  );
 }
 
 export default ScenarioForm;
+
+
 
 
 

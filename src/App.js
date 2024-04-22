@@ -4,25 +4,34 @@ import ComicGrid from './components/ComicGrid';
 import './App.css';
 
 function App() {
-    const [panels, setPanels] = useState([]);
+  const [panels, setPanels] = useState([]);
 
-    const handleGenerateClick = () => {
-        const newPanels = Array.from({ length: 6 }, (_, i) => `/output/panel-${i + 1}.png`);
-        setPanels(newPanels);
-    };
+  const handleGenerateClick = () => {
+      const newPanels = Array.from({ length: 6 }, (_, i) => `/output/panel-${i + 1}.png`);
+      setPanels(newPanels);
+  };
 
-    return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Comic Generator</h1>
-            </header>
-            <ScenarioForm onGenerate={handleGenerateClick} />
-            <ComicGrid panels={panels} />
-        </div>
-    );
+  return (
+      <div className="App">
+          <div className="sidebar">
+              {/* Navigation icons will go here */}
+          </div>
+          <div className="content">
+              <div className="left-container">
+                  <h1 className="title">Comic Generator</h1>
+                  <ScenarioForm onGenerate={handleGenerateClick} />
+              </div>
+              <div className="right-container">
+                  <ComicGrid panels={panels} />
+              </div>
+          </div>
+      </div>
+  );
 }
 
 export default App;
+
+
 
 
 // import React, { useState } from 'react';

@@ -1,65 +1,134 @@
-/* Reset some basic elements */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clean font */
-    background-color: #f4f4f4; /* Lighter background */
-    color: #333; /* Dark grey text for better readability */
-    text-align: center; /* Center text alignment */
-  }
-  
-  /* Universal box-sizing */
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  
-  /* Styling for the whole app component */
-  .App {
-    padding: 20px;
-  }
-  
-  /* Headers might use a slightly darker color to stand out */
-  header {
-    margin-bottom: 20px;
-  }
-  
-  /* Styling specific to form elements */
-  input, textarea, button {
-    font-size: 16px;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc; /* subtle borders */
-    border-radius: 8px; /* rounded corners */
-    background: none;
-    color: inherit; /* Inherits from body */
-  }
-  
-  /* Enhance the button to look more modern */
-  button {
-    background-color: #0084ff; /* A cool blue */
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
+:root {
+  /* Define color variables for easy theme management */
+  --background-color: #121212; /* Soft black background */
+  --sidebar-color: rgb(27, 37, 63); /* Sidebar color */
+  --accent-color: #16213e; /* Accent color for the gradient */
+  --text-color: #ffffff; /* Text color */
+  --button-color: #0084ff; /* Button color */
+  --button-hover-color: #0056b3; /* Button hover color */
+  --form-background-color: #2d2d3a; /* Form background color */
+}
 
-  @media (max-width: 768px) {
-    .App {
-      padding: 10px;
-    }
-  
-    input, textarea, button {
-      width: 90%; /* Make form elements take full width on smaller screens */
-      margin: 10px auto; /* Centering */
-    }
-  
-    /* Adjust grid for smaller screens */
-    .ComicGrid {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
-    }
+body, html {
+  /* Use the color variables */
+  background: linear-gradient(135deg, var(--background-color), var(--accent-color));
+  color: var(--text-color);
+  font-family: 'Montserrat', sans-serif; /* Apply Montserrat */
+  /* Rest of the styles... */
+}
+
+.sidebar {
+  width: 35px; /* Narrow initial width */
+  height: 100vh;
+  background-color: var(--sidebar-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease; /* Smooth transition for hover effect */
+  z-index: 1000; /* Ensure sidebar is above other content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px; /* Space for logo at the top */
+}
+
+/* Expand the sidebar only when it is hovered over */
+.sidebar:hover {
+  width: 80px; /* Wider on hover */
+}
+
+/* No need for .App:hover .content anymore */
+.content {
+  margin-left: 80px; /* Adjusted to the expanded sidebar width */
+  display: flex;
+  flex-direction: row; /* Align children in a row */
+  height: 100vh; /* Full height to fill the screen */
+}
+
+/* Container for the left half */
+.left-container {
+  flex: 1; /* Take up half of the available space */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  padding: 1rem; /* Add some padding */
+}
+
+.title {
+  align-self: flex-start; /* Align to the start of its container */
+  width: 100%; /* Ensure it takes full width of its container */
+  text-align: left; /* Align the text to the left */
+  margin-top: 30; /* Remove any margin at the top if necessary */
+  padding-top: 10px; /* Add padding at the top if needed */
+  padding-left: 10px; /* Add padding to align the title inside the left container */
+}
+
+/* Ensure .scenario-form is centered within .left-container */
+.scenario-form {
+  margin-top: auto; /* Push it to the middle */
+  margin-bottom: auto; /* Center it vertically within the remaining space */
+}
+
+/* Container for the right half */
+.right-container {
+  flex: 1; /* Take up half of the available space */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: flex-start; /* Align content to the top */
+  padding: 1rem; /* Add some padding */
+}
+
+/* Additional styling for logos and icons */
+.sidebar-logo,
+.sidebar-icon {
+  /* Icons and logo styling goes here */
+  cursor: pointer; /* Optional: changes cursor to a pointer to indicate it's clickable */
+  width: 100%; /* Ensures the icons use the full width of the sidebar */
+  text-align: center; /* Centers the icon text if not replaced by images */
+}
+
+/* Form styling */
+textarea {
+  background-color: var(--form-background-color);
+  /* Rest of the styles... */
+}
+
+/* Button styling */
+button {
+  background-color: var(--button-color);
+  /* Rest of the styles... */
+}
+
+button:hover {
+  background-color: var(--button-hover-color);
+  /* Rest of the styles... */
+}
+
+/* .scenario-form {
+  width: 100%; 
+  max-width: 500px; 
+  margin: 0 auto; 
+} */
+
+textarea, button {
+  width: 100%; /* Full width of their parent */
+  margin-top: 1rem; /* Margin at the top for spacing */
+  border-radius: 12px; /* Rounded corners */
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 1rem; /* Margin at the top for spacing */
+}
+
+
+/* Add responsive design adjustments if needed */
+@media (max-width: 768px) {
+  .App {
+    padding-left: 80px; /* Equal to width of sidebar when hovered */
   }
-    
+  
+  /* Rest of the media query styles... */
+}
