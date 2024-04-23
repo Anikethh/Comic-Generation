@@ -1,0 +1,39 @@
+# Panel 1
+description: Young girl with brown hair, young boy with blond hair, and a woman with grey hair. They are in a classroom.
+text:
+Teacher: We will now do the multiplication tables!
+Mya: I am not feeling well,
+
+
+# Panel 2
+description: Young girl with brown hair walking in a hallway, she holds her belly.
+text:
+Mya: I can't make it to the end of class.
+
+
+# Panel 3
+description: Young girl with brown hair, man with short brown hairs, and a woman with long black hairs, all sitting around a table.
+text:
+Mya: I think I am going to throw up.
+Dad: We will go home right away.
+
+
+# Panel 4
+description: Man with short brown hair carrying a young girl with brown hair, they are in a hallway.
+text:
+Dad: Let's go.
+Mya: I want to go home now.
+
+
+# Panel 5
+description: Man with short brown hair and woman with long black hair standing in a bedroom, young girl with brown hair is sleeping in a bed.
+text:
+Mom: She will be fine, she just needs to rest.
+Dad: I will call the doctor in the morning.
+
+
+# Panel 6
+description: Young girl with brown hair and young boy with blond hair standing before a teacher with grey hair.
+text:
+Mya: I am sorry I missed the class yesterday.
+Teacher: It's okay, I heard that you were not feeling well.

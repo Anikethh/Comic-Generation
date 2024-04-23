@@ -1,0 +1,57 @@
+# Panel Unknown
+description: Unknown
+text:
+Unknown
+# end
+
+# Panel 1
+description: 2 guys, a blond hair guy wearing glasses, a dark hair guy wearing hat, sitting at the office, with computers
+text:
+Vincent: I think Generative AI are the future of the company.
+Adrien: Let's create a new product with it.
+
+#
+# end
+
+# Panel 2
+description: 2 guys, a blond hair guy wearing glasses, a dark hair guy wearing hat, sitting at the office, with piles of documents on their desk
+text:
+Vincent: I wish we could work faster on this.
+Adrien: We have too much homework to do.
+
+#
+# end
+
+# Panel 3
+description: The dark-haired guy sitting at a desk, working on a laptop.
+text:
+Vincent: I think AI could be the solution.
+
+#
+# end
+
+# Panel 4
+description: 2 guys, sitting at the office, looking at their screens
+text:
+Vincent: It could help us automate many tasks and save us time.
+Adrien: That's true.
+
+#
+# end
+
+# Panel 5
+description: 2 guys sitting at the office, holding a cup of coffee, smiling
+text:
+Vincent: With it, we could finish this project in no time!
+Adrien: Let's give it a try.
+
+#
+# end
+
+# Panel 6
+description: 2 guys, standing in the office, holding a paper in their hands, smiling
+text:
+Adrien: The new product is ready!
+Vincent: Let's present it to the board.
+# end
+

@@ -2,14 +2,17 @@ import io
 import os
 import warnings
 import random
+from PIL import ImageFont
 
 from PIL import Image
 from stability_sdk import client
 import stability_sdk.interfaces.gooseai.generation.generation_pb2 as generation
 
 os.environ['STABILITY_HOST'] = 'grpc.stability.ai:443'
+os.environ['STABILITY_KEY'] = 'sk-PGKZx5zatQh1IHPkFYytZBhnCGiWNSG7pkxSv1TBKPUJD3cy'
 
 seed = random.randint(0, 1000000000)
+font = ImageFont.load_default()
 
 # Set up our connection to the API.
 stability_api = client.StabilityInference(
