@@ -15,7 +15,7 @@ Characters: Peter is a tall guy with blond hair. Steven is a small guy with blac
 Peter and Steven walk together in new york when aliens attack the city. They are afraid and try to run for their lives. The army arrive and save them.
 """
 
-STYLE = "indian comic, colored"
+STYLE = "Japanese comic, Colored"
 
 # ==========================================================================================
 
@@ -39,13 +39,15 @@ def generate_image():
     data = request.get_json(silent=True)
     print("ABNANA", data)
     text_prompt = data['prompt']
+    # print("TEXT PROMPT", text_prompt)
     paths = generate_img_from_prompt(text_prompt)
     
     # Return the saved image file
     return paths
 
 def generate_img_from_prompt(scenario):
-    STYLE = "american comic, colored"
+    # STYLE = "american comic, colored"
+    # print("this:" + scenario)
     panels = generate_panels(scenario)[1:]
     panel_images = []
 

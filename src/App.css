@@ -4,7 +4,7 @@
   --accent-color: #16213e;
   --text-color: #ffffff;
   --button-color: #0084ff;
-  --button-hover-color: #0056b3;
+  --button-hover-color: #a5d1ff;
   --form-background-color: #2d2d3a;
 }
 
@@ -12,6 +12,13 @@ body, html {
   background: linear-gradient(135deg, var(--background-color), var(--accent-color));
   color: var(--text-color);
   font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 * {
@@ -25,12 +32,13 @@ body, html {
   position: fixed;
   top: 0;
   left: 0;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, background-color 0.3s;
   z-index: 1000;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  justify-content: center;
+  padding-top: 0px;
 }
 
 .sidebar:hover {
@@ -83,15 +91,73 @@ body, html {
   text-align: center;
 }
 
-textarea, button {
-  width: 100%;
+.scenario-form textarea {
+  width: 80%;
   margin-top: 1rem;
   border-radius: 12px;
+  resize: none;
+  border: none !important;
+  background-color: rgb(27, 37, 63) !important;
+  color: #ffffff;
+  padding: 15px;
 }
 
-button {
+.scenario-form button {
   padding: 10px 20px;
   margin-top: 1rem;
+  border-radius: 12px;
+  background-color: rgb(72, 146, 230) !important;
+  border: none !important;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.scenario-form button:hover {
+  background-color: var(--button-hover-color);
+  transform: scale(1.05);
+}
+
+.sidebar-icon svg {
+  width: 40px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-logo svg {
+  margin-top: 2rem;
+  margin-bottom: 60px;
+  width: 50px;
+  height: auto;
+}
+
+.sidebar-logo {
+  margin-bottom: 20px;  /* Space below the logo */
+}
+
+.sidebar-icon {
+  margin-top: 20px;  /* Standard space for icons, applies to all after the first */
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.sidebar-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-icon:hover svg {
+  transform: scale(1.2);
+}
+
+.sidebar-icon:hover::before {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 @media (max-width: 768px) {

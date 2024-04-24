@@ -5,25 +5,40 @@ import axios from 'axios';
 import './App.css';
 
 function App() {
-  const [panels, setPanels] = useState([]);
+  const [panels, setPanels] = useState(Array.from({ length: 6 }, () => null));  // Initialize with nulls
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGenerateClick = async (prompt) => {
-    const newPanels = Array.from({ length: 6 }, (_, i) => `/output/panel-${i + 1}.png`);
-    setPanels(newPanels);
-
+    setIsLoading(true);
     try {
         const response = await axios.post('/generate-image', { prompt });
         setPanels(response.data); // response.data should be the array of paths
     } catch (error) {
         console.error('Error fetching images:', error);
-        setPanels([]); // Reset or handle error appropriately
+        // Optionally keep the old panels or reset
+    } finally {
+        setIsLoading(false);
     }
   };
 
   return (
       <div className="App">
           <div className="sidebar">
-              {/* Navigation icons will go here */}
+            <div className="sidebar-logo">
+                <img src="Media/VectorLogo.svg" alt="Logo" />
+            </div>
+            <div className="sidebar-icon">
+                <img src="Media/mingcute_layout-lineLayout1.svg" alt="Layout 1" />
+            </div>
+            <div className="sidebar-icon">
+                <img src="Media/mingcute_layout-lineLayout2.svg" alt="Layout 2" />
+            </div>
+            <div className="sidebar-icon">
+                <img src="Media/mingcute_layout-lineLayout3.svg" alt="Layout 3" />
+            </div>
+            <div className="sidebar-icon">
+                <img src="Media/mingcute_layout-lineLayout4.svg" alt="Layout 4" />
+            </div>
           </div>
           <div className="content">
               <div className="left-container">
@@ -31,7 +46,7 @@ function App() {
                   <ScenarioForm onGenerate={handleGenerateClick} />
               </div>
               <div className="right-container">
-                  <ComicGrid panels={panels} />
+                  <ComicGrid panels={panels} isLoading={isLoading} />
               </div>
           </div>
       </div>
@@ -39,6 +54,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
