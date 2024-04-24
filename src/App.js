@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import ScenarioForm from './components/ScenarioForm';
 import ComicGrid from './components/ComicGrid';
+import axios from 'axios';
 import './App.css';
 
 function App() {
   const [panels, setPanels] = useState([]);
 
-  const handleGenerateClick = () => {
-      const newPanels = Array.from({ length: 6 }, (_, i) => `/output/panel-${i + 1}.png`);
-      setPanels(newPanels);
+  const handleGenerateClick = async (prompt) => {
+    const newPanels = Array.from({ length: 6 }, (_, i) => `/output/panel-${i + 1}.png`);
+    setPanels(newPanels);
+
+    try {
+        const response = await axios.post('/generate-image', { prompt });
+        setPanels(response.data); // response.data should be the array of paths
+    } catch (error) {
+        console.error('Error fetching images:', error);
+        setPanels([]); // Reset or handle error appropriately
+    }
   };
 
   return (

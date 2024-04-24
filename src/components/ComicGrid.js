@@ -14,7 +14,7 @@ function ComicGrid({ panels }) {
             boxSizing: 'border-box', // Include padding in the width calculation
         }}>
             {panels.length > 0 ? (
-                panels.map((panel, index) => (
+                panels?.map((panel, index) => (
                     <div key={index} style={{
                         width: '100%', // Full width of the grid cell
                         paddingTop: `${100 / aspectRatio}%`, // Padding-top based on aspect ratio

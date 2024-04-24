@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Generated Panels</title>
+</head>
+<body>
+    <h1>Generated Comic Panels</h1>
+    <div id="panels">
+        <!-- JavaScript will load images here -->
+    </div>
+    <script>
+        fetch('/output/strip.png')
+            .then(response => {
+                if (response.ok) {
+                    const img = document.createElement('img');
+                    img.src = '/output/strip.png';
+                    document.getElementById('panels').appendChild(img);
+                } else {
+                    const message = document.createTextNode('No image found. Please generate first.');
+                    document.getElementById('panels').appendChild(message);
+                }
+            });
+    </script>
+</body>
+</html>

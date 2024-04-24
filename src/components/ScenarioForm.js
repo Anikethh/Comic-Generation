@@ -1,14 +1,18 @@
 import React from 'react';
+import { useState } from 'react';
 
 function ScenarioForm({ onGenerate }) {
+  const [prompt, setPrompt] = useState('');
   return (
     <div className="scenario-form">
       <form onSubmit={(e) => {
           e.preventDefault();
-          onGenerate();
+          onGenerate(prompt);
       }}>
           <textarea
               placeholder="Enter your scenario..."
+              value={prompt}
+              onChange={e => setPrompt(e.target.value)}
               rows="3"
               cols="50"
           />

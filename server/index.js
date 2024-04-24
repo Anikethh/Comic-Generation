@@ -1,8 +1,23 @@
 const express = require('express');
 const app = express();
+var request = require('request');
 const PORT = 3001;
+const FLASK_BACKEND = "http://localhost:3002/generate-image";
 
 app.use('/output', express.static('../output'));
+app.use(express.json());
+
+app.post('/generate-image', (req, res) => {
+    console.log("AHAHA", req.body)
+    request.post({ headers: {'content-type' : 'application/json'},
+    url: FLASK_BACKEND,
+    body: JSON.stringify(req.body)
+}
+    , function(error, response, body){
+        console.log(body); 
+        res.send(body);
+    });  
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

@@ -8,5 +8,8 @@
   "author": "Aniketh",
   "license": "MIT",
   "main": "index.js",
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "request": "^2.88.2"
+  }
 }
