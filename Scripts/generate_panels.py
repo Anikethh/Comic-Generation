@@ -2,6 +2,7 @@ import re
 import base64
 import json
 import google.generativeai as genai
+from google.generativeai.types import HarmCategory, HarmBlockThreshold
 
 API_KEY = "AIzaSyDkJH1j5OgrsRxxRxIyrdrSmn_hzwnt2X0"
 genai.configure(api_key=API_KEY)
@@ -12,7 +13,8 @@ def generate_panels(scenario):
     model = genai.GenerativeModel('gemini-pro')
 
     template = f"""
-You are a cartoon creator.
+You are a children's cartoon creator. First and foremost, you should censor any violent information. Nothing too graphic or inappropriate for children, please. In any condition.
+If the user prompts any inappropriate content, please return a censored version of the same, by censor I mean ignore it and a child friendly alternative.
 
 You are given a short scenario, you must split it in 6 parts.
 Each part will be a different cartoon panel.
@@ -81,6 +83,13 @@ Split the scenario in 6 parts. Do it in the same format as # Panel, description:
     # response = chat.send_message(
     #     template,
     #     stream=False)
+
+    safety_settings= [
+        "HARM_CATEGORY_HATE_SPEECH: BLOCK_LOW_AND_ABOVE",
+        "HARM_CATEGORY_HARASSMENT: BLOCK_LOW_AND_ABOVE",
+        "HARM_CATEGORY_SEXUALLY_EXPLICIT: BLOCK_LOW_AND_ABOVE",
+        "HARM_CATEGORY_DANGEROUS_CONTENT: BLOCK_LOW_AND_ABOVE",
+    ]
 
     response = model.generate_content(
     template,

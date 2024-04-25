@@ -9,7 +9,7 @@ function ComicGrid({ panels, isLoading }) {
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)', // Three columns
             gap: '25px',
-            width: '100%', // Ensure the grid takes full width of its container
+            width: '80%', // Ensure the grid takes full width of its container
             padding: '20px',
             boxSizing: 'border-box', // Include padding in the width calculation
             justifyContent: 'center', // Center grid items horizontally (if not filling the entire width)
@@ -27,7 +27,7 @@ function ComicGrid({ panels, isLoading }) {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    backgroundColor: 'rgba(255, 255, 255, 0.5)' // Semi-transparent overlay
+                    backgroundColor: 'transparent'
                 }}>
                     Loading...
                 </div>

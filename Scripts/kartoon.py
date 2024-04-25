@@ -15,7 +15,7 @@ Characters: Peter is a tall guy with blond hair. Steven is a small guy with blac
 Peter and Steven walk together in new york when aliens attack the city. They are afraid and try to run for their lives. The army arrive and save them.
 """
 
-STYLE = "Japanese comic, Colored"
+STYLE = "Indian comic, Colored"
 
 # ==========================================================================================
 
@@ -48,7 +48,7 @@ def generate_image():
 def generate_img_from_prompt(scenario):
     # STYLE = "american comic, colored"
     # print("this:" + scenario)
-    panels = generate_panels(scenario)[1:]
+    panels = generate_panels(scenario)
     panel_images = []
 
     for panel in panels:

@@ -13,11 +13,11 @@ function ScenarioForm({ onGenerate }) {
             placeholder="Enter your scenario..."
             value={prompt}
             onChange={e => setPrompt(e.target.value)}
-            rows="8"  // Increased from 3 to 5 for a bigger text area
+            rows="12"  // Increased from 3 to 5 for a bigger text area
             cols="50"
             style={{ resize: "none" }}  // Prevents resizing
         />
-          <button type="submit">Generate Comic</button>
+          <button type="submit" style={{ fontWeight: 'bold' }}>Generate Comic</button>
       </form>
     </div>
   );

@@ -42,7 +42,7 @@ function App() {
           </div>
           <div className="content">
               <div className="left-container">
-                  <h1 className="title">Comic Generator</h1>
+                  <h1 className="title">Comic Pilot</h1>
                   <ScenarioForm onGenerate={handleGenerateClick} />
               </div>
               <div className="right-container">
